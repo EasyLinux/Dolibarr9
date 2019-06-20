@@ -22,6 +22,11 @@ RUN apk add php7-mysqli php7-mcrypt php7-openssl php7-mbstring \
 		php7-calendar \
 		php7-xml \
 		php7-zip 
+
+ADD Files/ /
+RUN chown apache: /var/www/html/conf/conf.php
+RUN chown -R apache: /var/www/html/documents/
+
 EXPOSE 80
 
 CMD /usr/sbin/httpd -D FOREGROUND
